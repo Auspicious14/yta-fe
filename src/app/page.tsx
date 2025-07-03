@@ -231,8 +231,8 @@ const fadeIn = {
                     },
                   }}
                 >
-                  <h3 className="text-3xl font-bold mb-4 text-white">{title}</h3>
-                  <p className="text-lg opacity-90 text-gray-200">
+                  <h3 className="text-3xl font-bold mb-4 text-gray-900">{title}</h3>
+                  <p className="text-lg opacity-90 text-gray-800">
                     {[
                       'Generate scripts tailored to your niche and audience.',
                       'Create voiceovers with natural, customizable voices.',
