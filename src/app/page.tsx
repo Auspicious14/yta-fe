@@ -258,20 +258,20 @@ const fadeIn = {
           viewport={{ once: true }}
           variants={fadeInUp}
         >
-          <h2 className="text-4xl font-extrabold text-center mb-8 drop-shadow-lg text-white">
+          <h2 className="text-4xl font-extrabold text-center mb-8 drop-shadow-lg text-gray-900>
             Try Reelay in Action
           </h2>
 
           <div className="mb-6">
             <label
               htmlFor="request"
-              className="block text-white text-lg font-semibold mb-2"
+              className="block text-gray-800 text-lg font-semibold mb-2"
             >
               Enter your automation request:
             </label>
             <textarea
               id="request"
-              className="w-full p-4 rounded-lg bg-white bg-opacity-15 text-white placeholder-gray-300 outline-none focus:ring-2 focus:ring-purple-300 transition-all duration-300 resize-y min-h-[180px]"
+              className="w-full p-4 rounded-lg bg-white bg-opacity-15 text-gray-900 placeholder-gray-300 outline-none focus:ring-2 focus:ring-purple-300 transition-all duration-300 resize-y min-h-[180px]"
               placeholder="e.g., 'Create a video about AI trends using Reelay.'"
               value={requestText}
               onChange={(e) => setRequestText(e.target.value)}
