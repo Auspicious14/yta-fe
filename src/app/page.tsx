@@ -1,9 +1,8 @@
 "use client";
 
-import Head from 'next/head';
 import { useState } from "react";
 import axios from "axios";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 export default function Home() {
   const [requestText, setRequestText] = useState("");
@@ -23,12 +22,12 @@ export default function Home() {
       alert("Failed to send request.");
     }
   };
-const fadeInUp = {
+  const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
-const fadeIn = {
+  const fadeIn = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 1 } },
   };
@@ -68,7 +67,7 @@ const fadeIn = {
           </button>
         </div>
       </section>
-
+    
       <section className="py-20 bg-purple-900 bg-opacity-80 backdrop-filter backdrop-blur-lg p-4">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-5xl font-extrabold mb-12 drop-shadow-lg">
@@ -105,7 +104,7 @@ const fadeIn = {
           </div>
         </div>
       </section>
-
+    
       <section
         id="automation-section"
         className="py-20 bg-purple-800 bg-opacity-70 backdrop-filter backdrop-blur-lg p-4"
@@ -114,7 +113,7 @@ const fadeIn = {
           <h2 className="text-4xl font-extrabold text-center mb-8 drop-shadow-lg text-gray-900">
             Test our Idea
           </h2>
-
+    
           <div className="mb-6">
             <label
               htmlFor="request"
@@ -130,7 +129,7 @@ const fadeIn = {
               onChange={(e) => setRequestText(e.target.value)}
             ></textarea>
           </div>
-
+    
           <button
             onClick={sendRequest}
             className="w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-opacity-75"
@@ -139,7 +138,7 @@ const fadeIn = {
           </button>
         </div>
       </section>
-
+    
       
       <footer className="py-10 px-4 bg-purple-950 text-center text-gray-300 text-sm">
         <div className="max-w-6xl mx-auto">
@@ -154,12 +153,7 @@ const fadeIn = {
       </footer>
     </div>*/
 
-       <div className="min-h-screen bg-gradient-to-br from-[#6e00ff] to-[#120020] text-white font-satoshi">
-      <Head>
-        <title>Reelay — Automate Your YouTube Potential</title>
-        <meta name="description" content="AI-powered YouTube video creation" />
-      </Head>
-
+    <div className="">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center text-center p-4 overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -214,34 +208,40 @@ const fadeIn = {
             What We Do
           </motion.h2>
           <div className="grid md:grid-cols-3 gap-12">
-            {["AI-Powered Scripting", "Automated Voiceovers", "Seamless Publishing"].map(
-              (title, i) => (
-                <motion.div
-                  key={i}
-                  className="bg-white bg-opacity-10 p-8 rounded-xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:bg-opacity-20 border border-white border-opacity-20"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={{
-                    hidden: { opacity: 0, y: 30 },
-                    visible: {
-                      opacity: 1,
-                      y: 0,
-                      transition: { duration: 0.6, delay: i * 0.2 },
-                    },
-                  }}
-                >
-                  <h3 className="text-3xl font-bold mb-4 text-gray-900">{title}</h3>
-                  <p className="text-lg opacity-90 text-gray-800">
-                    {[
-                      'Generate scripts tailored to your niche and audience.',
-                      'Create voiceovers with natural, customizable voices.',
-                      'Upload to YouTube with optimized metadata.',
-                    ][i]}
-                  </p>
-                </motion.div>
-              )
-            )}
+            {[
+              "AI-Powered Scripting",
+              "Automated Voiceovers",
+              "Seamless Publishing",
+            ].map((title, i) => (
+              <motion.div
+                key={i}
+                className="bg-white bg-opacity-10 p-8 rounded-xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:bg-opacity-20 border border-white border-opacity-20"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.6, delay: i * 0.2 },
+                  },
+                }}
+              >
+                <h3 className="text-3xl font-bold mb-4 text-gray-900">
+                  {title}
+                </h3>
+                <p className="text-lg opacity-90 text-gray-800">
+                  {
+                    [
+                      "Generate scripts tailored to your niche and audience.",
+                      "Create voiceovers with natural, customizable voices.",
+                      "Upload to YouTube with optimized metadata.",
+                    ][i]
+                  }
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -258,7 +258,7 @@ const fadeIn = {
           viewport={{ once: true }}
           variants={fadeInUp}
         >
-          <h2 className="text-4xl font-extrabold text-center mb-8 drop-shadow-lg text-gray-900>
+          <h2 className="text-4xl font-extrabold text-center mb-8 drop-shadow-lg text-gray-900">
             Try Reelay in Action
           </h2>
 
@@ -288,8 +288,6 @@ const fadeIn = {
           </motion.button>
         </motion.div>
       </section>
-
-      {/* Footer */}
       <footer className="py-10 px-4 bg-purple-950 text-center text-gray-400 text-sm">
         <motion.div
           className="max-w-6xl mx-auto"
