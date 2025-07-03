@@ -1,7 +1,9 @@
 "use client";
 
+import Head from 'next/head';
 import { useState } from "react";
 import axios from "axios";
+import { motion } from "framer-motion"
 
 export default function Home() {
   const [requestText, setRequestText] = useState("");
@@ -21,10 +23,19 @@ export default function Home() {
       alert("Failed to send request.");
     }
   };
+const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
+
+const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1 } },
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-700 to-blue-900 text-white font-sans">
-      {/* Hero Section */}
+    /*<div className="min-h-screen bg-gradient-to-br from-purple-700 to-blue-900 text-white font-sans">
+    
       <section className="relative h-screen flex items-center justify-center text-center p-4 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black opacity-30"></div>
@@ -58,7 +69,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-20 bg-purple-900 bg-opacity-80 backdrop-filter backdrop-blur-lg p-4">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-5xl font-extrabold mb-12 drop-shadow-lg">
@@ -96,7 +106,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Automation Request Section */}
       <section
         id="automation-section"
         className="py-20 bg-purple-800 bg-opacity-70 backdrop-filter backdrop-blur-lg p-4"
@@ -131,7 +140,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
+      
       <footer className="py-10 px-4 bg-purple-950 text-center text-gray-300 text-sm">
         <div className="max-w-6xl mx-auto">
           <p>
@@ -140,6 +149,120 @@ export default function Home() {
           </p>
           <p className="mt-2">
             Designed with passion by Auspicious for content creators.
+          </p>
+        </div>
+      </footer>
+    </div>*/
+
+       <div className="min-h-screen bg-gradient-to-br from-[#6e00ff] to-[#120020] text-white font-satoshi">
+      <Head>
+        <title>Reelay — Automate Your YouTube Potential</title>
+        <meta name="description" content="AI-powered YouTube video creation" />
+      </Head>
+
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center text-center p-4 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-black opacity-40"></div>
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage:
+                "url('https://images.unsplash.com/photo-1517292987307-cd27b662c75d?q=80&w=2070&auto=format&fit=crop')",
+            }}
+          ></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-purple-950 to-transparent"></div>
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <h1 className="text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg">
+            Unleash Your YouTube Potential
+          </h1>
+          <p className="text-xl mb-10 opacity-90">
+            Automate video creation, editing, and publishing with AI-powered
+            precision. Focus on your content, let Reelay handle the rest.
+          </p>
+          <button
+            onClick={() =>
+              document
+                .getElementById("automation-section")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+            className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-xl transform transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-pink-400"
+          >
+            Get Started
+          </button>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 bg-[#1a0033] bg-opacity-90 backdrop-blur-lg p-4">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-5xl font-extrabold mb-12 drop-shadow-lg">
+            What We Do
+          </h2>
+          <div className="grid md:grid-cols-3 gap-12">
+            {["AI-Powered Scripting", "Automated Voiceovers", "Seamless Publishing"].map(
+              (title, i) => (
+                <div
+                  key={i}
+                  className="bg-white bg-opacity-10 p-8 rounded-xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:bg-opacity-20 border border-white border-opacity-20"
+                >
+                  <h3 className="text-3xl font-bold mb-4 text-white">{title}</h3>
+                  <p className="text-lg opacity-90 text-gray-200">
+                    {[
+                      'Generate scripts tailored to your niche and audience.',
+                      'Create voiceovers with natural, customizable voices.',
+                      'Upload to YouTube with optimized metadata.',
+                    ][i]}
+                  </p>
+                </div>
+              )
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Automation Request Section */}
+      <section
+        id="automation-section"
+        className="py-20 bg-[#2a0044] bg-opacity-80 backdrop-blur-lg p-4"
+      >
+        <div className="max-w-3xl mx-auto bg-white bg-opacity-10 rounded-xl shadow-2xl p-8 border border-white border-opacity-20 transform transition-all duration-500 hover:scale-105">
+          <h2 className="text-4xl font-extrabold text-center mb-8 drop-shadow-lg text-white">
+            Try Reelay in Action
+          </h2>
+
+          <div className="mb-6">
+            <label
+              htmlFor="request"
+              className="block text-white text-lg font-semibold mb-2"
+            >
+              Enter your automation request:
+            </label>
+            <textarea
+              id="request"
+              className="w-full p-4 rounded-lg bg-white bg-opacity-15 text-white placeholder-gray-300 outline-none focus:ring-2 focus:ring-purple-300 transition-all duration-300 resize-y min-h-[180px]"
+              placeholder="e.g., 'Create a video about AI trends using Reelay.'"
+              value={requestText}
+              onChange={(e) => setRequestText(e.target.value)}
+            ></textarea>
+          </div>
+
+          <button
+            onClick={sendRequest}
+            className="w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-opacity-75"
+          >
+            Send Request
+          </button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-10 px-4 bg-purple-950 text-center text-gray-400 text-sm">
+        <div className="max-w-6xl mx-auto">
+          <p>&copy; {new Date().getFullYear()} Reelay. All rights reserved.</p>
+          <p className="mt-2">
+            Designed with 💡 by Auspicious for creators & dreamers.
           </p>
         </div>
       </footer>
