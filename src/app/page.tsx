@@ -173,7 +173,12 @@ const fadeIn = {
           ></div>
           <div className="absolute inset-0 bg-gradient-to-t from-purple-950 to-transparent"></div>
         </div>
-        <div className="relative z-10 max-w-4xl mx-auto">
+        <motion.div
+          className="relative z-10 max-w-4xl mx-auto"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+        >
           <h1 className="text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg">
             Unleash Your YouTube Potential
           </h1>
@@ -181,31 +186,50 @@ const fadeIn = {
             Automate video creation, editing, and publishing with AI-powered
             precision. Focus on your content, let Reelay handle the rest.
           </p>
-          <button
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() =>
               document
                 .getElementById("automation-section")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-xl transform transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-pink-400"
+            className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-xl transform transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-pink-400"
           >
             Get Started
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </section>
 
       {/* Features Section */}
       <section className="py-20 bg-[#1a0033] bg-opacity-90 backdrop-blur-lg p-4">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-5xl font-extrabold mb-12 drop-shadow-lg">
+          <motion.h2
+            className="text-5xl font-extrabold mb-12 drop-shadow-lg"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
             What We Do
-          </h2>
+          </motion.h2>
           <div className="grid md:grid-cols-3 gap-12">
             {["AI-Powered Scripting", "Automated Voiceovers", "Seamless Publishing"].map(
               (title, i) => (
-                <div
+                <motion.div
                   key={i}
                   className="bg-white bg-opacity-10 p-8 rounded-xl shadow-xl transform transition-all duration-300 hover:scale-105 hover:bg-opacity-20 border border-white border-opacity-20"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    visible: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.6, delay: i * 0.2 },
+                    },
+                  }}
                 >
                   <h3 className="text-3xl font-bold mb-4 text-white">{title}</h3>
                   <p className="text-lg opacity-90 text-gray-200">
@@ -215,7 +239,7 @@ const fadeIn = {
                       'Upload to YouTube with optimized metadata.',
                     ][i]}
                   </p>
-                </div>
+                </motion.div>
               )
             )}
           </div>
@@ -227,7 +251,13 @@ const fadeIn = {
         id="automation-section"
         className="py-20 bg-[#2a0044] bg-opacity-80 backdrop-blur-lg p-4"
       >
-        <div className="max-w-3xl mx-auto bg-white bg-opacity-10 rounded-xl shadow-2xl p-8 border border-white border-opacity-20 transform transition-all duration-500 hover:scale-105">
+        <motion.div
+          className="max-w-3xl mx-auto bg-white bg-opacity-10 rounded-xl shadow-2xl p-8 border border-white border-opacity-20 transform transition-all duration-500 hover:scale-105"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
           <h2 className="text-4xl font-extrabold text-center mb-8 drop-shadow-lg text-white">
             Try Reelay in Action
           </h2>
@@ -248,23 +278,31 @@ const fadeIn = {
             ></textarea>
           </div>
 
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={sendRequest}
-            className="w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-opacity-75"
+            className="w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform shadow-lg focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-opacity-75"
           >
             Send Request
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </section>
 
       {/* Footer */}
       <footer className="py-10 px-4 bg-purple-950 text-center text-gray-400 text-sm">
-        <div className="max-w-6xl mx-auto">
+        <motion.div
+          className="max-w-6xl mx-auto"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeIn}
+        >
           <p>&copy; {new Date().getFullYear()} Reelay. All rights reserved.</p>
           <p className="mt-2">
-            Designed with 💡 by Auspicious for creators & dreamers.
+            Built with 💡 by Auspicious for creators & dreamers.
           </p>
-        </div>
+        </motion.div>
       </footer>
     </div>
   );
