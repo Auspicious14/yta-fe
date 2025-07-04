@@ -30,13 +30,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-[#6e00ff] to-[#120020] text-white font-sans`}
       >
-        <header className="fixed top-0 left-0 w-full z-50 bg-gradient-to-br from-[#6e00ff] to-[#120020] shadow-md flex items-center justify-center h-16">
+        <header className="fixed top-0 left-0 w-full z-50 bg-gradient-to-br from-[#6e00ff] to-[#120020] flex items-center justify-center h-16">
           <Image
             src="/reelay-logo.png"
             alt="Reelay Logo"
             width={100}
             height={100}
-            style={{ objectFit: "contain" }}
+            style={{ height: "40px", width: "auto", objectFit: "contain" }}
           />
         </header>
         <div style={{ paddingTop: "64px" }}>{children}</div>
